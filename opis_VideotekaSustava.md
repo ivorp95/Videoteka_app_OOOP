@@ -1,4 +1,4 @@
-## Osnove objektno orijentiraniog programiranja
+# Osnove objektno orijentiraniog programiranja
 # Videoteka_app
 
 * Aplikacija mora imati:
@@ -20,6 +20,13 @@
     koji se nalaze u kolekciji te klikom na "posudi" posuditi odabrani film,
     kod svakog filma nalazi se broj dostupnih komada za trenutnu posudbu.
 
+----
+Stanje nekog filamu kolekciji - ako imate jedan naslov, onda je ovo dobro - ima ga , nema ga
+Ako želite imati više filmova istog naslova pa pratiti koliko ih je ostalo, radije izostavite
+
+Pretraga - svakako. Vrlo se jednostavno implementira, gotovi kôdovi potoje, postavit ću jedan na Merlin
+----
+
 # 1. ANALIZA
 
 
@@ -34,6 +41,9 @@
     7. Zapisivanje koji je film posuđen kojem korisniku
     8. Posudbom filma količina slobodnih se smanjuje
 
+----
+Možda izbaciti 6 i 8; ali opet, ako imate dovoljno vremena i volje, onda radite. Ali neka to ostane opcija "ako imam dovoljno/viška vremena".
+----
 
 
     Tko su akteri u aplikaciji/sustavu:
@@ -64,3 +74,8 @@
         3.4. Administrator može brisati/dodavati/izmjenjivati filmove i podatke o filmovima
         3.5. Administrator može brisati neaktivne korisnike ili one koji nevraćaju filmove
         3.6. 
+
+----
+3.1. ako odstanete od opcije praćenja stanja, onda taj dio izbaciti iz tablice; inače, tablica OK (paziti onda na vanjski ključ ako se opcija izbaci)
+3.2. tako je (opet, paziti na VK ako se opcija iz 3.1. izbaci)
+----
