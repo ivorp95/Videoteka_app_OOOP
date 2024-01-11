@@ -37,9 +37,8 @@ Pretraga - svakako. Vrlo se jednostavno implementira, gotovi kôdovi potoje, pos
     3. Pretraga po nekom podatku o filmu - godina/ime/redatelj/trajanje
     4. Ispis svih filmova u kolekciji sa brojem dostupnih za posudbu
     5. Odabir filma za posudbu klikom na gumb pokraj dostupnog filma
-    6. Praćenje stanja filmova u kolekciji -količina slobodna za posudbu  -količina koja je trenutno posuđena
-    7. Zapisivanje koji je film posuđen kojem korisniku
-    8. Posudbom filma količina slobodnih se smanjuje
+    6. Zapisivanje koji je film posuđen kojem korisniku
+
 
 ----
 Možda izbaciti 6 i 8; ali opet, ako imate dovoljno vremena i volje, onda radite. Ali neka to ostane opcija "ako imam dovoljno/viška vremena".
@@ -68,12 +67,10 @@ Možda izbaciti 6 i 8; ali opet, ako imate dovoljno vremena i volje, onda radite
         2.4. Mogućnost uvida u popis korisnika te izmjenu(brisanje neaktivnih ili slično)
 
     3. Baza podataka
-        3.1. Tablica filmova sa podatcima o filmovima i trenutnom kolicinom na stanju, PK filma, FK korisnika koji su posudili taj film
-        3.2. Tablica korisnika sa korisnickim imenom, PK korisnika, FK filma koji je trenutno posudio
-        3.3. Posudbom filma o strane korisnika stanje u količini u bazi se smanjuje za 1, a kod korisnika se vodi zapis da je posuđen 1 film
-        3.4. Administrator može brisati/dodavati/izmjenjivati filmove i podatke o filmovima
-        3.5. Administrator može brisati neaktivne korisnike ili one koji nevraćaju filmove
-        3.6. 
+        3.1. Tablica korisnika sa korisnickim imenom, PK korisnika, FK filma koji je trenutno posudio
+        3.2. Posudbom filma o strane korisnika stanje u količini u bazi se smanjuje za 1, a kod korisnika se vodi zapis da je posuđen 1 film
+        3.3. Administrator može brisati/dodavati/izmjenjivati filmove i podatke o filmovima
+        3.4. Administrator može brisati neaktivne korisnike ili one koji nevraćaju filmove 
 
 ----
 3.1. ako odstanete od opcije praćenja stanja, onda taj dio izbaciti iz tablice; inače, tablica OK (paziti onda na vanjski ključ ako se opcija izbaci)
