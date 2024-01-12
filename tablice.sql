@@ -26,3 +26,4 @@ datum_vracanja date not null,
 foreign key (film_id) references filmVideoteka(film_id) on delete restrict on update cascade,
 foreign key (clan_id) references clanVideoteka(clan_id) on delete cascade on update cascade
 );
+
