@@ -67,3 +67,21 @@ insert into filmVideoteka (naslov,redatelj,god_izdanja,trajanje) values
 ('300','Zack Snyder','2006','117'),
 ('Inglorious Bastards','Quentin Tarantino','2009','153')
 
+
+
+
+
+
+
+
+
+
+
+
+select datum_vracanja, clanVideoteka.ime, clanVideoteka.broj_mob, filmVideoteka.film_id, filmVideoteka.god_izdanja  from posudbaVideoteka 
+left outer join clanVideoteka on posudbaVideoteka.clan_id = clanVideoteka.clan_id left outer join filmVideoteka on filmVideoteka.film_id = posudbaVideoteka.film_id ;
+
+
+
+
+
