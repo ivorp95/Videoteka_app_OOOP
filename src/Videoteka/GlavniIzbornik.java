@@ -79,6 +79,9 @@ public class GlavniIzbornik {
 		JButton btnPronaiFilm = new JButton("Pronađi film");
 		btnPronaiFilm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				PretragaFilma pf= new PretragaFilma();
+				pf.showWindow();
+				
 			}
 		});
 		btnPronaiFilm.setBounds(89, 304, 125, 43);
