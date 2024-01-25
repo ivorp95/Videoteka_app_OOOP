@@ -44,6 +44,6 @@ Thumbs.db
 *.jpeg
 *.png
 serv/node_modules
-.classpath
-knjiznicaOOOP/.classpath
+#.classpath
+#knjiznicaOOOP/.classpath
 /bin/
