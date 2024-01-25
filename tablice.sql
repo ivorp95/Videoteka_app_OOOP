@@ -4,8 +4,15 @@ CREATE table clanVideoteka(
 clan_id int primary key auto_increment not null,
 ime varchar(30) not null,
 prezime varchar(50) not null,
-broj_mob varchar(20) not null
+broj_mob varchar(20) not null,
+lozinka varchar(70) not null
 );
+
+
+
+alter table clanVideoteka add lozinka varchar(70) not null;
+
+
 
 CREATE table filmVideoteka(
 film_id int primary key auto_increment not null,
