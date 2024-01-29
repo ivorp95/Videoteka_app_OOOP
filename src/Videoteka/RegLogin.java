@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import java.awt.Font;
 
 public class RegLogin {
 
@@ -26,6 +28,7 @@ public class RegLogin {
 			}
 		});
 	}
+	
 
 	/**
 	 * Create the application.
@@ -51,7 +54,7 @@ public class RegLogin {
 				
 			}
 		});
-		btnNewButton.setBounds(38, 92, 123, 50);
+		btnNewButton.setBounds(37, 138, 123, 50);
 		frame.getContentPane().add(btnNewButton);
 		
 		
@@ -66,8 +69,13 @@ public class RegLogin {
 				
 			}
 		});
-		btnLogiin.setBounds(270, 92, 123, 50);
+		btnLogiin.setBounds(270, 138, 123, 50);
 		frame.getContentPane().add(btnLogiin);
+		
+		JLabel lblNewLabel = new JLabel("Dobrodošli u Videoteku ");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 28));
+		lblNewLabel.setBounds(74, 26, 307, 50);
+		frame.getContentPane().add(lblNewLabel);
 	}
 		
 		public void showWindow(){

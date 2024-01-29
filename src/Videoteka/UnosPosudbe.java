@@ -58,7 +58,7 @@ public class UnosPosudbe {
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JComboBox comboClan = new JComboBox();
+		JComboBox<String> comboClan = new JComboBox<>();
 		comboClan.setBounds(26, 80, 189, 27);
 		frame.getContentPane().add(comboClan);
 		
@@ -97,7 +97,7 @@ public class UnosPosudbe {
 			
 		}
 		catch(Exception e1){
-			JOptionPane.showMessageDialog(null, e1);
+			JOptionPane.showMessageDialog(null, "Greška servera!");
 		};
 		
 		
@@ -114,7 +114,7 @@ public class UnosPosudbe {
 					
 					Class.forName("com.mysql.cj.jdbc.Driver");
 					Connection con=DriverManager.getConnection("jdbc:mysql://student.veleri.hr/ipangos?serverTimezone=UTC","ipangos","11");
-					String upitClan="SELECT clan_id FROM clanVideoteka WHERE prezime='"+odabraniClan+"'";
+					String upitClan="SELECT clan_id FROM clanOOOP WHERE broj_mob=(select broj_mob from clanOOOP where prezime='"+odabraniClan+"');";
 					String upitFilm="SELECT film_id FROM filmVideoteka WHERE naslov='"+odabraniFilm+"'";
 					
 					Statement stmtClan=con.createStatement();

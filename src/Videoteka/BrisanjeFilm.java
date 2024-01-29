@@ -1,27 +1,27 @@
 package Videoteka;
-import java.awt.EventQueue;
-import Videoteka.*;
 
-import java.sql.*;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.JButton;
-import javax.swing.table.DefaultTableModel;
+import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.awt.event.ActionEvent;
-import javax.swing.JScrollPane;
 
-public class PregledFilma {
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
+public class BrisanjeFilm {
 
 	private JFrame frame;
 	private JTable table;
 	private JScrollPane scrollPane;
-	
+	private JButton btnNewButton_1;
 	
 
 	/**
@@ -29,10 +29,9 @@ public class PregledFilma {
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
-			
 			public void run() {
 				try {
-					PregledFilma window = new PregledFilma();
+					BrisanjeFilm window = new BrisanjeFilm();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -44,7 +43,7 @@ public class PregledFilma {
 	/**
 	 * Create the application.
 	 */
-	public PregledFilma() {
+	public BrisanjeFilm() {
 		initialize();
 	}
 
@@ -86,7 +85,7 @@ public class PregledFilma {
 			}
 			}
 		});
-		btnNewButton.setBounds(234, 382, 132, 37);
+		btnNewButton.setBounds(104, 382, 132, 37);
 		frame.getContentPane().add(btnNewButton);
 		
 		scrollPane = new JScrollPane();
@@ -109,6 +108,51 @@ public class PregledFilma {
 				return columnEditables[column];
 			}
 		});
+		
+		btnNewButton_1 = new JButton("Izbriši film");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+
+				
+				try {
+					DefaultTableModel model = (DefaultTableModel) table.getModel();
+					
+					int odabranRedak = table.getSelectedRow();
+					int idFilma= (int) table.getValueAt(odabranRedak, 0);
+					
+					Class.forName("com.mysql.cj.jdbc.Driver");
+					Connection con=DriverManager.getConnection("jdbc:mysql://student.veleri.hr/ipangos?serverTimezone=UTC","ipangos","11");
+					
+					String upit="DELETE FROM filmVideoteka WHERE film_id='"+idFilma+"'";
+					PreparedStatement ps = con.prepareStatement(upit);
+					
+					int obrisaniRedak = ps.executeUpdate();
+					
+					if (obrisaniRedak == 1) {
+						JOptionPane.showMessageDialog(null, "Film je uspješno obrisan.");
+					}
+						
+					else {
+						JOptionPane.showMessageDialog(null, "Došlo je do pogreške prilikom brisanja.");					
+					}
+					
+
+				
+						
+				}
+				catch(Exception e1) {
+					JOptionPane.showMessageDialog(null, "Greška servera!");
+					
+			}
+			}
+			
+			
+			
+		});
+		btnNewButton_1.setBounds(353, 382, 132, 37);
+		frame.getContentPane().add(btnNewButton_1);
 		table.getColumnModel().getColumn(0).setResizable(false);
 		table.getColumnModel().getColumn(0).setPreferredWidth(21);
 		table.getColumnModel().getColumn(1).setResizable(false);
@@ -119,8 +163,9 @@ public class PregledFilma {
 		table.getColumnModel().getColumn(3).setPreferredWidth(96);
 		table.getColumnModel().getColumn(4).setResizable(false);
 	}
-		
-		public void showWindow(){
-			frame.setVisible(true);
+	
+	public void showWindow(){
+		frame.setVisible(true);
 	}
+
 }

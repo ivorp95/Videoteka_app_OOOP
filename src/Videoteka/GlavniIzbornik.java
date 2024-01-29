@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import java.awt.Font;
 
 public class GlavniIzbornik {
 
@@ -19,6 +21,7 @@ public class GlavniIzbornik {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					
 					GlavniIzbornik window = new GlavniIzbornik();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
@@ -53,7 +56,7 @@ public class GlavniIzbornik {
 				
 			}
 		});
-		btnNewButton.setBounds(89, 53, 125, 43);
+		btnNewButton.setBounds(89, 53, 137, 43);
 		frame.getContentPane().add(btnNewButton);
 		
 		JButton btnPregledlanova = new JButton("Pregled članova");
@@ -63,7 +66,7 @@ public class GlavniIzbornik {
 				pc.showWindow();
 			}
 		});
-		btnPregledlanova.setBounds(89, 135, 125, 43);
+		btnPregledlanova.setBounds(89, 135, 137, 43);
 		frame.getContentPane().add(btnPregledlanova);
 		
 		JButton btnPregledPosudbi = new JButton("Pregled posudbi");
@@ -73,7 +76,7 @@ public class GlavniIzbornik {
 				pp.showWindow();
 			}
 		});
-		btnPregledPosudbi.setBounds(89, 218, 125, 43);
+		btnPregledPosudbi.setBounds(89, 218, 137, 43);
 		frame.getContentPane().add(btnPregledPosudbi);
 		
 		JButton btnPronaiFilm = new JButton("Pronađi film");
@@ -84,7 +87,7 @@ public class GlavniIzbornik {
 				
 			}
 		});
-		btnPronaiFilm.setBounds(89, 304, 125, 43);
+		btnPronaiFilm.setBounds(89, 304, 137, 43);
 		frame.getContentPane().add(btnPronaiFilm);
 		
 		JButton btnLogin = new JButton("Unos filma");
@@ -94,7 +97,7 @@ public class GlavniIzbornik {
 				uf.showWindow();
 			}
 		});
-		btnLogin.setBounds(361, 53, 125, 43);
+		btnLogin.setBounds(349, 53, 137, 43);
 		frame.getContentPane().add(btnLogin);
 		
 		//unos clana gumb otvara ponovo registracijski obrazac 
@@ -107,7 +110,7 @@ public class GlavniIzbornik {
 				
 			}
 		});
-		btnUnoslana.setBounds(361, 135, 125, 43);
+		btnUnoslana.setBounds(349, 135, 137, 43);
 		frame.getContentPane().add(btnUnoslana);
 		
 		JButton btnUnosPosudbe = new JButton("Unos posudbe");
@@ -117,15 +120,17 @@ public class GlavniIzbornik {
 				up.showWindow();
 			}
 		});
-		btnUnosPosudbe.setBounds(361, 218, 125, 43);
+		btnUnosPosudbe.setBounds(349, 218, 137, 43);
 		frame.getContentPane().add(btnUnosPosudbe);
 		
-		JButton btnProna = new JButton("Brisanje ");
+		JButton btnProna = new JButton("Brisanje / Izmjena ");
 		btnProna.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				BrisanjeIzmjena bi = new BrisanjeIzmjena();
+				bi.showWindow();
 			}
 		});
-		btnProna.setBounds(361, 304, 125, 43);
+		btnProna.setBounds(349, 304, 137, 43);
 		frame.getContentPane().add(btnProna);
 		
 		JButton btnZavriSRadom = new JButton("Završi s radom");
@@ -136,6 +141,11 @@ public class GlavniIzbornik {
 		});
 		btnZavriSRadom.setBounds(226, 392, 125, 32);
 		frame.getContentPane().add(btnZavriSRadom);
+		
+		JLabel lblNewLabel = new JLabel("Glavni izbornik");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel.setBounds(223, 11, 189, 31);
+		frame.getContentPane().add(lblNewLabel);
 	}
 		
 		

@@ -74,14 +74,16 @@ insert into filmVideoteka (naslov,redatelj,god_izdanja,trajanje) values
 
 
 
-
+SELECT clan_id FROM clanOOOP WHERE broj_mob=(select broj_mob from clanOOOP where prezime='pangos');
 
 
 
 select datum_vracanja, clanVideoteka.ime, clanVideoteka.broj_mob, filmVideoteka.film_id, filmVideoteka.god_izdanja  from posudbaVideoteka 
 left outer join clanVideoteka on posudbaVideoteka.clan_id = clanVideoteka.clan_id left outer join filmVideoteka on filmVideoteka.film_id = posudbaVideoteka.film_id ;
 
+SELECT * FROM filmVideoteka WHERE redatelj='Terry Gilliam' OR god_izdanja='1999';
 
+SELECT id_posudba FROM posudbaVideoteka WHERE film_id=2;
 
-
+update filmVideoteka set  naslov='naslov', redatelj='test', god_izdanja='123', trajanje='434' where film_id=44;
 
