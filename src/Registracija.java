@@ -1,4 +1,5 @@
 package Videoteka;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
@@ -31,6 +32,7 @@ public class Registracija {
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
+			
 			public void run() {
 				try {
 					Registracija window = new Registracija();
@@ -113,7 +115,13 @@ public class Registracija {
 
 				
 				lozinkas=new String (lozinka.getPassword());
-				ponLozinkas=new String(ponLozinka.getPassword());			
+				ponLozinkas=new String(ponLozinka.getPassword());	
+				
+				
+                // Generirajte sol za bcrypt
+                String salt = BCrypt.gensalt();
+                // Hashirajte lozinku sa soli
+                String hashLozinke = BCrypt.hashpw(lozinkas, salt);
 				
 				
 			if(imes.isEmpty()==false && prezimes.isEmpty()==false && brojMobs.isEmpty()==false && lozinkas.isEmpty()==false) {	// provjera ako je uneseno sve u polja
@@ -140,7 +148,7 @@ public class Registracija {
 						psInsert.setString(1, imes);
 						psInsert.setString(2, prezimes);
 						psInsert.setString(3, brojMobs);
-						psInsert.setString(4, lozinkas);
+						psInsert.setString(4, hashLozinke);
 						
 						
 						int ubacenoRedaka=psInsert.executeUpdate();

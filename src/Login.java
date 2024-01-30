@@ -1,5 +1,6 @@
 package Videoteka;
 import java.awt.EventQueue;
+import org.mindrot.jbcrypt.BCrypt;
 import Videoteka.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -34,6 +35,7 @@ public class Login {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+				
 			}
 		});
 	}
@@ -75,30 +77,35 @@ public class Login {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				String brojMobs, lozinkas;
+				String brojMobs, hashLozinka, lozinkas;
 				brojMobs=brojMob.getText();
 				lozinkas=new String (lozinka.getPassword());
+				
+
 				
 				
 				try {
 					Class.forName("com.mysql.cj.jdbc.Driver");
 					Connection con=DriverManager.getConnection("jdbc:mysql://student.veleri.hr/ipangos?serverTimezone=UTC","ipangos","11");
-					String upit="SELECT * FROM clanVideoteka WHERE broj_mob=? and lozinka=?";
+					String upit="SELECT lozinka FROM clanVideoteka WHERE broj_mob='"+brojMobs+"'";
 					PreparedStatement ps=con.prepareStatement(upit);
-					ps.setString(1, brojMobs);	
-					ps.setString(2,lozinkas);
+					
 					ResultSet rs=ps.executeQuery();
 					
 					if (rs.next()) {
+						hashLozinka = rs.getString(1);
+						
+						if(BCrypt.checkpw(lozinkas, hashLozinka)) {
+							
 						GlavniIzbornik gi = new GlavniIzbornik();
 						gi.showWindow();
 						
 						//kod uspjesnog logina zatvara se login prozor i otvara Glavni Izbornik
 						frame.dispose();
-						
+						}
 					}
 					else {
-						JOptionPane.showMessageDialog(null, "Login nije moguć; podatci ne odgovaraju");
+						JOptionPane.showMessageDialog(null, "Login nije moguć; lozinka ne odgovara");
 					}
 					
 				}

@@ -98,6 +98,7 @@ public class UnosPosudbe {
 		}
 		catch(Exception e1){
 			JOptionPane.showMessageDialog(null, "Greška servera!");
+			
 		};
 		
 		
@@ -114,7 +115,7 @@ public class UnosPosudbe {
 					
 					Class.forName("com.mysql.cj.jdbc.Driver");
 					Connection con=DriverManager.getConnection("jdbc:mysql://student.veleri.hr/ipangos?serverTimezone=UTC","ipangos","11");
-					String upitClan="SELECT clan_id FROM clanOOOP WHERE broj_mob=(select broj_mob from clanOOOP where prezime='"+odabraniClan+"');";
+					String upitClan="SELECT clan_id FROM clanVideoteka WHERE broj_mob=(SELECT broj_mob FROM clanVideoteka WHERE prezime='"+odabraniClan+"');";
 					String upitFilm="SELECT film_id FROM filmVideoteka WHERE naslov='"+odabraniFilm+"'";
 					
 					Statement stmtClan=con.createStatement();
@@ -125,8 +126,8 @@ public class UnosPosudbe {
 					
 					//treba nam dva broja jer posudba ima dva vanjska kljuca id knjige i id clana
 					
-					int idClan=0, idFilm=0
-							;
+					int idClan=0, idFilm=0;
+					
 					if(rsClan.next()) {
 						idClan=rsClan.getInt(1);
 					}

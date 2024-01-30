@@ -9,7 +9,6 @@ lozinka varchar(70) not null
 
 
 
-
 alter table clanVideoteka add lozinka varchar(70) not null;
 
 
@@ -74,7 +73,7 @@ insert into filmVideoteka (naslov,redatelj,god_izdanja,trajanje) values
 
 
 
-SELECT clan_id FROM clanOOOP WHERE broj_mob=(select broj_mob from clanOOOP where prezime='pangos');
+SELECT clan_id FROM clanVideoteka WHERE broj_mob=(select broj_mob from clanVideoteka where prezime='Pangos');
 
 
 
