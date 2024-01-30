@@ -31,7 +31,7 @@
 
     1. Mogućnost kreacije i prijave korisnika u sustav
     2. Izbornik sa opcijama za - pretragu/posudbu/uvid u stanje  -unos/brisanje/administriranje
-    3. Pretraga po nekom podatku o filmu - godina/ime/redatelj/trajanje
+    3. Pretraga po nekom podatku o filmu - godina/redatelj
     4. Ispis svih filmova u kolekciji 
     5. Odabir filma za posudbu klikom na gumb pokraj dostupnog filma
     6. Zapisivanje koji je film posuđen kojem korisniku
