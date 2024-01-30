@@ -1,6 +1,8 @@
 # Osnove objektno orijentiraniog programiranja
 # Videoteka_app
 
+    https://github.com/ivorp95/Videoteka_app_OOOP
+
 * Aplikacija mora imati:
 1. Login ekran
 2. CRUD operacije
